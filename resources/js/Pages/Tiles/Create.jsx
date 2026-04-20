@@ -8,14 +8,14 @@ export default function Create({ colors }) {
     const { data, setData, post, processing, errors } = useForm({
         name: '',
         size: 8,
-        pixels: Array(64).fill(null),
+        pixels: new Array(64).fill(null),
     });
 
     function handleSizeChange(newSize) {
         setData({
             ...data,
             size: newSize,
-            pixels: Array(newSize * newSize).fill(null),
+            pixels: new Array(newSize * newSize).fill(null),
         });
     }
 
@@ -32,8 +32,9 @@ export default function Create({ colors }) {
                 <form onSubmit={submit} className="flex flex-col items-center gap-6">
                     <div className="flex gap-4 items-start">
                         <div>
-                            <label className="block text-sm text-gray-600 mb-1">Name</label>
+                            <label htmlFor="name" className="block text-sm text-gray-600 mb-1">Name</label>
                             <input
+                                id="name"
                                 type="text"
                                 value={data.name}
                                 onChange={e => setData('name', e.target.value)}
@@ -44,8 +45,9 @@ export default function Create({ colors }) {
                         </div>
 
                         <div>
-                            <label className="block text-sm text-gray-600 mb-1">Size</label>
+                            <label htmlFor="size" className="block text-sm text-gray-600 mb-1">Size</label>
                             <select
+                                id="size"
                                 value={data.size}
                                 onChange={e => handleSizeChange(Number(e.target.value))}
                                 className="border border-gray-300 rounded pl-3 pr-8 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-gray-500"

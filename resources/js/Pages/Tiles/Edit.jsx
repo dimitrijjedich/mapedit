@@ -23,8 +23,9 @@ export default function Edit({ tile, colors }) {
             <div className="py-8 max-w-5xl mx-auto px-4">
                 <form onSubmit={submit} className="flex flex-col items-center gap-6">
                     <div>
-                        <label className="block text-sm text-gray-600 mb-1">Name</label>
+                        <label htmlFor="name" className="block text-sm text-gray-600 mb-1">Name</label>
                         <input
+                            id="name"
                             type="text"
                             value={data.name}
                             onChange={e => setData('name', e.target.value)}

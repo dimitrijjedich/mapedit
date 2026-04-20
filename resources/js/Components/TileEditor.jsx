@@ -6,7 +6,7 @@ export default function TileEditor({ size, pixels: initialPixels, colors, onChan
     const total = size * size;
     const cellSize = size === 8 ? 48 : 32;
 
-    const [pixels, setPixels] = useState(initialPixels ?? Array(total).fill(null));
+    const [pixels, setPixels] = useState(initialPixels ?? new Array(total).fill(null));
     const [selectedColor, setSelectedColor] = useState(null);
     const [isPainting, setIsPainting] = useState(false);
 
@@ -75,16 +75,18 @@ export default function TileEditor({ size, pixels: initialPixels, colors, onChan
                 <div>
                     <p className="text-xs text-gray-500 uppercase tracking-wide mb-2">Palette</p>
                     <div className="grid grid-cols-4 gap-1">
-                        <div
-                            className={`w-8 h-8 rounded cursor-pointer border-2 ${selectedColor === null ? 'border-white' : 'border-gray-700'}`}
+                        <button
+                            type="button"
+                            className={`w-8 h-8 rounded border-2 ${selectedColor === null ? 'border-white' : 'border-gray-700'}`}
                             style={{ backgroundColor: '#000000' }}
                             title="Erase"
                             onClick={() => setSelectedColor(null)}
                         />
                         {colors.map(color => (
-                            <div
+                            <button
                                 key={color.id}
-                                className={`w-8 h-8 rounded cursor-pointer border-2 ${selectedColor === color.id ? 'border-white' : 'border-gray-700'}`}
+                                type="button"
+                                className={`w-8 h-8 rounded border-2 ${selectedColor === color.id ? 'border-white' : 'border-gray-700'}`}
                                 style={{ backgroundColor: color.hex }}
                                 title={color.name}
                                 onClick={() => setSelectedColor(color.id)}
