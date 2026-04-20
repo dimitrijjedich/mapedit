@@ -13,7 +13,8 @@ class TileController extends Controller
     public function index()
     {
         return Inertia::render('Tiles/Index', [
-            'tiles' => Tile::all(),
+            'tiles'  => Tile::all(),
+            'colors' => Color::all(),
         ]);
     }
 
