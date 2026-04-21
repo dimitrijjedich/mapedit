@@ -63,13 +63,13 @@ export default function Index({ tiles, colors }) {
                     <div className="grid grid-cols-4 gap-4">
                         {tiles.map(tile => (
                             <div key={tile.id} className="bg-white border border-gray-200 rounded overflow-hidden flex flex-col">
-                                <div className="bg-black flex justify-center items-center p-4">
+                                <div className="flex justify-center items-center p-4" style={{ backgroundImage: 'linear-gradient(45deg, #bbb 25%, transparent 25%), linear-gradient(-45deg, #bbb 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #bbb 75%), linear-gradient(-45deg, transparent 75%, #bbb 75%)', backgroundSize: '24px 24px', backgroundPosition: '0 0, 0 12px, 12px -12px, -12px 0px', backgroundColor: '#fff' }}>
                                     <TilePreview tile={tile} colors={colors} />
                                 </div>
                                 <div className="p-3 flex flex-col gap-3">
-                                    <div>
+                                    <div className="flex justify-between items-center">
                                         <p className="font-medium text-gray-800 text-sm">{tile.name}</p>
-                                        <p className="text-xs text-gray-400">{tile.size}×{tile.size}</p>
+                                        <span className="bg-gray-100 text-gray-500 text-xs px-2 py-0.5 rounded-full">{tile.size}×{tile.size}</span>
                                     </div>
                                     <div className="flex gap-2">
                                         <Link href={route('tiles.edit', tile.id)} className="flex-1 text-center px-3 py-1.5 text-xs bg-gray-800 text-white rounded hover:bg-gray-700">
