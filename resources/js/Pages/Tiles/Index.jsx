@@ -1,5 +1,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head, Link, router } from '@inertiajs/react';
+import Button from '@/Components/Button';
+import LinkButton from '@/Components/LinkButton';
+import { Head, router } from '@inertiajs/react';
 import PropTypes from 'prop-types';
 import { ColorShape, TileShape } from '@/types';
 
@@ -47,17 +49,13 @@ export default function Index({ tiles, colors }) {
 
             <div className="py-8 max-w-5xl mx-auto px-4">
                 <div className="flex justify-end mb-6">
-                    <Link href={route('tiles.create')} className="px-4 py-2 bg-green text-white text-sm rounded hover:opacity-85">
-                        New Tile
-                    </Link>
+                    <LinkButton href={route('tiles.create')}>New Tile</LinkButton>
                 </div>
 
                 {tiles.length === 0 ? (
                     <div className="flex flex-col items-center gap-4 pt-12">
                         <p className="text-silver text-lg">No tiles yet. Create your first one.</p>
-                        <Link href={route('tiles.create')} className="px-4 py-2 bg-green text-white text-sm rounded hover:opacity-85">
-                            New Tile
-                        </Link>
+                        <LinkButton href={route('tiles.create')}>New Tile</LinkButton>
                     </div>
                 ) : (
                     <div className="grid grid-cols-4 gap-4">
@@ -72,12 +70,10 @@ export default function Index({ tiles, colors }) {
                                         <span className="bg-black text-silver text-xs px-2 py-0.5 rounded-full">{tile.size}×{tile.size}</span>
                                     </div>
                                     <div className="flex gap-2">
-                                        <Link href={route('tiles.edit', tile.id)} className="flex-1 text-center px-3 py-1.5 text-xs bg-green text-white rounded hover:opacity-85">
-                                            Edit
-                                        </Link>
-                                        <button onClick={() => destroy(tile.id)} className="flex-1 px-3 py-1.5 text-xs bg-red text-white rounded hover:opacity-85">
+                                        <LinkButton href={route('tiles.edit', tile.id)} className="flex-1">Edit</LinkButton>
+                                        <Button variant="danger" onClick={() => destroy(tile.id)} className="flex-1 justify-center">
                                             Delete
-                                        </button>
+                                        </Button>
                                     </div>
                                 </div>
                             </div>

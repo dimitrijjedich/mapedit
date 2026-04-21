@@ -1,6 +1,11 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import TileEditor from '@/Components/TileEditor';
-import { Head, Link, useForm } from '@inertiajs/react';
+import Button from '@/Components/Button';
+import LinkButton from '@/Components/LinkButton';
+import InputLabel from '@/Components/InputLabel';
+import TextInput from '@/Components/TextInput';
+import InputError from '@/Components/InputError';
+import { Head, useForm } from '@inertiajs/react';
 import PropTypes from 'prop-types';
 import { ColorShape } from '@/types';
 
@@ -32,20 +37,19 @@ export default function Create({ colors }) {
                 <form onSubmit={submit} className="flex flex-col items-center gap-6">
                     <div className="flex gap-4 items-start">
                         <div>
-                            <label htmlFor="name" className="block text-sm text-silver mb-1">Name</label>
-                            <input
+                            <InputLabel htmlFor="name" value="Name" className="mb-1" />
+                            <TextInput
                                 id="name"
-                                type="text"
                                 value={data.name}
                                 onChange={e => setData('name', e.target.value)}
-                                className="border border-gray bg-dark text-white rounded px-3 py-2 text-sm w-48 focus:outline-none focus:ring-1 focus:ring-orange"
+                                className="w-48"
                                 placeholder="e.g. Brick"
                             />
-                            {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+                            <InputError message={errors.name} className="mt-1" />
                         </div>
 
                         <div>
-                            <label htmlFor="size" className="block text-sm text-silver mb-1">Size</label>
+                            <InputLabel htmlFor="size" value="Size" className="mb-1" />
                             <select
                                 id="size"
                                 value={data.size}
@@ -58,7 +62,7 @@ export default function Create({ colors }) {
                         </div>
                     </div>
 
-                    <div className="bg-gray-900 rounded-lg p-6">
+                    <div className="bg-dark rounded-lg p-6">
                         <TileEditor
                             key={data.size}
                             size={data.size}
@@ -68,19 +72,13 @@ export default function Create({ colors }) {
                         />
                     </div>
 
-                    {errors.pixels && <p className="text-red-500 text-xs">{errors.pixels}</p>}
+                    <InputError message={errors.pixels} />
 
                     <div className="flex gap-3">
-                        <button
-                            type="submit"
-                            disabled={processing}
-                            className="px-4 py-2 bg-green text-white text-sm rounded hover:opacity-85 disabled:opacity-50"
-                        >
+                        <Button type="submit" disabled={processing}>
                             Save Tile
-                        </button>
-                        <Link href={route('tiles.index')} className="px-4 py-2 text-sm text-white bg-yellow rounded hover:opacity-85">
-                            Cancel
-                        </Link>
+                        </Button>
+                        <LinkButton href={route('tiles.index')} variant="secondary">Cancel</LinkButton>
                     </div>
                 </form>
             </div>
