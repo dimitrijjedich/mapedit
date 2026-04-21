@@ -41,7 +41,7 @@ export default function TileEditor({ size, pixels: initialPixels, colors, onChan
     return (
         <div className="flex gap-8 items-start" onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}>
             <div
-                className="border-2 border-gray-700 select-none w-fit"
+                className="border-2 border-gray select-none w-fit"
                 style={{
                     display: 'grid',
                     gridTemplateColumns: `repeat(${size}, ${cellSize}px)`,
@@ -65,19 +65,19 @@ export default function TileEditor({ size, pixels: initialPixels, colors, onChan
 
             <div className="flex flex-col gap-3 min-w-[160px]">
                 <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Selected</p>
+                    <p className="text-xs text-silver uppercase tracking-wide mb-1">Selected</p>
                     <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded border border-gray-600" style={{ backgroundColor: selectedHex }} />
-                        <span className="text-sm text-gray-300">{selectedName}</span>
+                        <div className="w-8 h-8 rounded border border-gray" style={{ backgroundColor: selectedHex }} />
+                        <span className="text-sm text-white">{selectedName}</span>
                     </div>
                 </div>
 
                 <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wide mb-2">Palette</p>
+                    <p className="text-xs text-silver uppercase tracking-wide mb-2">Palette</p>
                     <div className="grid grid-cols-4 gap-1">
                         <button
                             type="button"
-                            className={`w-8 h-8 rounded border-2 ${selectedColor === null ? 'border-white' : 'border-gray-700'}`}
+                            className={`w-8 h-8 rounded border-2 ${selectedColor === null ? 'border-white' : 'border-gray'}`}
                             style={{ backgroundColor: '#000000' }}
                             title="Erase"
                             onClick={() => setSelectedColor(null)}
@@ -86,7 +86,7 @@ export default function TileEditor({ size, pixels: initialPixels, colors, onChan
                             <button
                                 key={color.id}
                                 type="button"
-                                className={`w-8 h-8 rounded border-2 ${selectedColor === color.id ? 'border-white' : 'border-gray-700'}`}
+                                className={`w-8 h-8 rounded border-2 ${selectedColor === color.id ? 'border-white' : 'border-gray'}`}
                                 style={{ backgroundColor: color.hex }}
                                 title={color.name}
                                 onClick={() => setSelectedColor(color.id)}
