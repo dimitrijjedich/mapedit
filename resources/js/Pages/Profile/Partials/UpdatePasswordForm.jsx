@@ -1,6 +1,6 @@
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
+import Button from '@/Components/Button';
 import TextInput from '@/Components/TextInput';
 import { Transition } from '@headlessui/react';
 import { useForm } from '@inertiajs/react';
@@ -47,11 +47,11 @@ export default function UpdatePasswordForm({ className = '' }) {
     return (
         <section className={className}>
             <header>
-                <h2 className="text-lg font-medium text-gray-900">
+                <h2 className="text-lg font-medium text-white">
                     Update Password
                 </h2>
 
-                <p className="mt-1 text-sm text-gray-600">
+                <p className="mt-1 text-sm text-silver">
                     Ensure your account is using a long, random password to stay
                     secure.
                 </p>
@@ -122,7 +122,7 @@ export default function UpdatePasswordForm({ className = '' }) {
                 </div>
 
                 <div className="flex items-center gap-4">
-                    <PrimaryButton disabled={processing}>Save</PrimaryButton>
+                    <Button disabled={processing}>Save</Button>
 
                     <Transition
                         show={recentlySuccessful}
@@ -131,9 +131,7 @@ export default function UpdatePasswordForm({ className = '' }) {
                         leave="transition ease-in-out"
                         leaveTo="opacity-0"
                     >
-                        <p className="text-sm text-gray-600">
-                            Saved.
-                        </p>
+                        <p className="text-sm text-silver">Saved.</p>
                     </Transition>
                 </div>
             </form>
