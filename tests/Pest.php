@@ -18,6 +18,9 @@ pest()->extend(TestCase::class)
     ->use(RefreshDatabase::class)
     ->in('Feature');
 
+pest()->extend(TestCase::class)
+    ->in('Unit', 'Architecture');
+
 /*
 |--------------------------------------------------------------------------
 | Expectations
@@ -28,10 +31,6 @@ pest()->extend(TestCase::class)
 | to assert different things. Of course, you may extend the Expectation API at any time.
 |
 */
-
-expect()->extend('toBeOne', function () {
-    return $this->toBe(1);
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +43,3 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
-{
-    // ..
-}
