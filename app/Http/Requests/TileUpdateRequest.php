@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class TileUpdateRequest extends FormRequest
@@ -18,8 +17,8 @@ class TileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'   => ['required', 'string', 'max:255'],
-            'size'   => ['required', 'integer', 'in:8,16'],
+            'name' => ['required', 'string', 'max:255'],
+            'size' => ['required', 'integer', 'in:8,16'],
             'pixels' => ['required', 'array'],
         ];
     }
