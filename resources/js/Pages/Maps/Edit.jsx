@@ -24,7 +24,7 @@ export default function Edit({ map, tiles, colors }) {
         <AuthenticatedLayout header={<h2 className="text-xl font-semibold text-white">Edit Map</h2>}>
             <Head title="Edit Map" />
 
-            <div className="py-8 max-w-7xl mx-auto px-4">
+            <div className="py-4 max-w-7xl mx-auto px-4">
                 <form onSubmit={submit} className="flex flex-col items-center gap-6">
                     <div>
                         <InputLabel htmlFor="name" value="Name" className="mb-1" />
