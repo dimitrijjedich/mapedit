@@ -36,6 +36,12 @@ export default function AuthenticatedLayout({ header, children }) {
                                 >
                                     Tiles
                                 </NavLink>
+                                <NavLink
+                                    href={route('maps.index')}
+                                    active={route().current('maps.*')}
+                                >
+                                    Maps
+                                </NavLink>
                             </div>
                         </div>
 
