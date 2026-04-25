@@ -1,6 +1,7 @@
 # Laravel
 /vendor/
 /node_modules/
+/.vite/
 /public/build/
 /public/hot/
 /storage/*.key
