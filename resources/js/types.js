@@ -12,3 +12,9 @@ export const TileShape = PropTypes.shape({
     size: PropTypes.number.isRequired,
     pixels: PropTypes.arrayOf(PropTypes.number),
 });
+
+export const MapShape = PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    cells: PropTypes.arrayOf(PropTypes.number),
+});
