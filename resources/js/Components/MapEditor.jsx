@@ -95,14 +95,12 @@ export default function MapEditor({ cells: initialCells, tiles, colors, onChange
                     <p className="text-xs text-silver uppercase tracking-wide mb-1">Selected</p>
                     {selectedTile === null ? (
                         <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded border border-gray bg-black" />
+                            <div style={{ width: CELL, height: CELL }} className="border border-gray bg-black" />
                             <span className="text-sm text-white">Erase</span>
                         </div>
                     ) : (
                         <div className="flex items-center gap-2">
-                            <div className="border border-gray">
-                                <TileCell tile={tileMap[selectedTile]} colors={colors} />
-                            </div>
+                            <TileCell tile={tileMap[selectedTile]} colors={colors} />
                             <span className="text-sm text-white">{tileMap[selectedTile]?.name}</span>
                         </div>
                     )}
@@ -116,7 +114,7 @@ export default function MapEditor({ cells: initialCells, tiles, colors, onChange
                             className={`flex items-center gap-2 px-2 py-1 rounded border ${selectedTile === null ? 'border-white' : 'border-gray'}`}
                             onClick={() => setSelectedTile(null)}
                         >
-                            <div className="w-4 h-4 bg-black border border-gray rounded-sm" />
+                            <div style={{ width: CELL, height: CELL }} className="bg-black border border-gray" />
                             <span className="text-xs text-white">Erase</span>
                         </button>
                         {tiles.map(tile => (
